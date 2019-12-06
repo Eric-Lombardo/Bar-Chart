@@ -1,0 +1,26 @@
+create a bar chart:
+  - use only html css and js
+  - create many functions that work together
+
+api:
+  - renders it to the index.html
+  - drawBarChart(data, options, element);
+  - The data parameter will be the data the chart should work 
+    from Start with just an Array of numbers
+    e.g. [1, 2, 3, 4, 5]
+  - The options parameter should be an object which has options for the chart.
+    e.g. width and height of the bar chart
+  - The element parameter should be a DOM element or jQuery element that the chart 
+    will get rendered into.
+
+display:
+  - numerical values inside bar
+  - be able to position values @ top, middle or bottom according to user options
+  - width depends on number of data given by user
+  - height depends on value of data given by user
+  - bar color, label color, bar spacing, bar chart axes are all customizable
+  - x-axis shows labels for each data value
+  - y-axis show ticks at certain values relating to data values
+  - title of bar chart should be dynamic. also include: (font size/ colour)
+
+[DONE]  create resource file that contains links to every helpful resource
