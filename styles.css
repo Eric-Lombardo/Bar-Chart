@@ -1,16 +1,54 @@
-#chart {
-  border-left: 2px solid black;
-  border-bottom: 2px solid black;
+.title {background-color: orange;}
+.yaxis {background-color: blue;}
+.bars {background-color: red;}
+.xaxis {background-color: green;}
+.one {
+  background-color: pink;
+  width: 30px;
+  height: 50px;
+}
+.two {
+  background-color: violet;
+  width: 30px;
+  height: 200px;
 }
 
-#chart #data1 {
-  background-color: blue;
+.chart {
+  /* width: 300px;
+  height: 300px; */
+  border: 2px solid black;
 }
 
-#chart #data2 {
-  background-color: crimson;
+.bars {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
 }
 
-#chart #data3 {
-  background-color: darkgoldenrod;
+.yaxis {
+  align-self: stretch;
+}
+
+.xaxis {
+  display: flex;
+  justify-content: space-around;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.value1 {
+  height: 50px;
+  border-top: 0.01px solid black;
+}
+
+.value2 {
+  height: 150px;
 }

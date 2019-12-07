@@ -1,0 +1,27 @@
+day 1:
+  - 2 hours
+  - started project and began using bootstrap to quickly mock up
+    how I wanted my bar graph to look like. I'm not sure if I'll 
+    continue using bootstrap in my code as i realize I won't need it
+    since I can probably do without it for now.
+  - My biggest struggle today was trying to figure out how to get 
+    my coloumns to grow from the bottom to the top. Right now it seems
+    like the default is for the div to grow from the top to the bottom.
+    I researched the problem and the solution seems to be to include in
+    the CSS vertical-align: bottom, but i think Bootstrap is overriding 
+    this even though my css file is loaded after the bootstrap CDN. This
+    is why i'll most likely remove bootstrap from this project.
+
+day2:
+  - 3 hours
+  - I found out that flexbox is a baked in property in CSS so I decided
+    to get rid of Bootstrap since that was the primary reason why I wanted 
+    to use it. Then i spent my time refactoring my code to make a mock-up
+    of how i want my bargraphs to be displayed. It looks ugly I know ...
+    but for now it's all about function and styling can come later. I hope
+    this doesn't come back to haunt me.
+  - Today's biggest struggle would be design. I kept on trying to get my code
+    to look like how i sketched out my design on paper. It's sort of getting
+    there. Also I wanted to add ticks to my y-axis by using border-bottom, but
+    that adds to the height and increases the size the chart making the ticks
+    no longer at the same level of the bars.
