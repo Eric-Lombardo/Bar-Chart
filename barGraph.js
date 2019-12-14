@@ -9,7 +9,7 @@ function drawBarChart(arr) {
   chart.style.gridTemplateRows = createBarHeight(arr);
   
   // creates div that will containe y-axis values
-  let yAxis = document.createElement("div");yAxis.style.gridRowStart = highestValue(arr);yAxis.classList.add("column");yAxis.innerHTML = "y-axis values";chart.appendChild(yAxis);
+  let yAxis = document.createElement("div");yAxis.style.gridRowStart = highestValue(arr) + 1;yAxis.classList.add("column");yAxis.innerHTML = "y-axis values";chart.appendChild(yAxis);
 
  
 
@@ -20,10 +20,18 @@ function drawBarChart(arr) {
     newData.classList.add("column");
     newData.innerHTML = "dataset_" + (i + 1);
     newData.style.gridColumnStart = i + 2;
-    newData.style.gridRowStart = highestValue(arr);
+    newData.style.gridRowStart = highestValue(arr) + 1;
     chart.appendChild(newData); 
   }
   
+  // prints out values for y-axis based on input data
+  for (let m = 1; m <= highestValue(arr); m++) {
+    let printData = document.createElement("div");
+    printData.innerHTML = m;
+    printData.style.gridRowStart = m;
+    printData.classList.add("column");
+    chart.appendChild(printData);
+  }
   
   
   document.body.appendChild(chart);
@@ -35,6 +43,7 @@ console.log(drawBarChart([5, 4, 2]));
 
 // ------------------ mini functions ------------------ //
 
+
 function highestValue(arr) {
   let count = null;
   for (let l = 0; l < arr.length; l++) {
@@ -42,7 +51,7 @@ function highestValue(arr) {
       count = arr[l];
     }
   }
-  return count + 1;
+  return count;
 }
 
 function createBarHeight(arr) {
