@@ -1,0 +1,13 @@
+body {
+  background-color: pink;
+}
+
+.chart {
+  /* display: grid;
+  gap: 20px; */
+  /* grid-template-columns: 1fr 1fr; */
+}
+
+.column {
+  border: 2px black solid;
+}

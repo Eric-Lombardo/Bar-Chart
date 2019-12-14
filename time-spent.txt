@@ -25,3 +25,12 @@ day2:
     there. Also I wanted to add ticks to my y-axis by using border-bottom, but
     that adds to the height and increases the size the chart making the ticks
     no longer at the same level of the bars.
+
+day3:
+  - 3 hours
+  - I have found a better solution for completing this project. While doing research
+    for how to use flexbox i came across the grid system. After watching some videos
+    by Wes Bos on youtube and completing a CSS grid game online i felt confident enough
+    to use this system in constructing a bargraph. I went ahead and created a template,
+    that i will use as a basis of how i want the UI to look like.
+  - Honestly the grid system made sense to me pretty quickly, so no struggles today.
