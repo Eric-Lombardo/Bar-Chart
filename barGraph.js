@@ -28,9 +28,26 @@ function drawBarChart(arr) {
   for (let m = 1; m <= highestValue(arr); m++) {
     let printData = document.createElement("div");
     printData.innerHTML = m;
-    printData.style.gridRowStart = m;
+    printData.style.gridRowStart = (highestValue(arr) + 1) - m;
     printData.classList.add("column");
     chart.appendChild(printData);
+  }
+
+  // creates bars
+  for (let n = 0; n < arr.length; n++) {
+    let barColor = document.createElement("div");
+    barColor.style.backgroundColor = "orange";
+    barColor.style.gridColumnStart = n + 2;
+    barColor.style.gridRowEnd = highestValue(arr) + 1;
+    if (arr[n] === highestValue(arr)) {
+      barColor.style.gridRowStart = 1;
+    } else if (arr[n] < highestValue(arr)) {
+      barColor.style.gridRowStart = highestValue(arr) - arr[n] + 1;
+    }
+
+
+    
+    chart.appendChild(barColor);
   }
   
   
@@ -38,12 +55,12 @@ function drawBarChart(arr) {
 }
 
 // testing
-console.log(drawBarChart([5, 4, 2]));
+console.log(drawBarChart([5, 4, 2, 10, 7, 6]));
 
 
 // ------------------ mini functions ------------------ //
 
-
+// finds the highest value of input data-set
 function highestValue(arr) {
   let count = null;
   for (let l = 0; l < arr.length; l++) {
@@ -54,6 +71,8 @@ function highestValue(arr) {
   return count;
 }
 
+// looks at input data value and creates chart rows based off highest
+// input data value
 function createBarHeight(arr) {
   let count = null;
   let string = "";
