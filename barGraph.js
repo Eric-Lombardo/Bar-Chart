@@ -6,14 +6,12 @@ function drawBarChart(arr) {
   chart.style.display = "grid";
   chart.style.gap = "20px";
   chart.style.gridTemplateColumns = spreadDivs(arr);
+  chart.style.gridTemplateRows = createBarHeight(arr);
   
-
-
   // creates div that will containe y-axis values
-  let yAxis = document.createElement("div");
-  yAxis.classList.add("column");
-  yAxis.innerHTML = "y-axis values";
-  chart.appendChild(yAxis);
+  let yAxis = document.createElement("div");yAxis.classList.add("column");yAxis.innerHTML = "y-axis values";chart.appendChild(yAxis);
+
+ 
 
   // loops through input array to create divs and nests them inside
   //chart div
@@ -25,8 +23,31 @@ function drawBarChart(arr) {
   }
   
   
+  
   document.body.appendChild(chart);
 }
+
+// testing
+console.log(drawBarChart([5, 4, 2]));
+
+
+// ------------------ mini functions ------------------ //
+
+function createBarHeight(arr) {
+  let count = null;
+  let string = "";
+  for (let k = 0; k < arr.length; k++) {
+    if (arr[k] > count) {
+      count = arr[k];
+    }
+  }
+  while (count >= 0) {
+    string += "1fr ";
+    count -= 1;
+  }
+  return string;
+}
+
 
 // mini  function that takes the number of columns and creates 1fr for
 // styling of grid-template-columns
@@ -39,5 +60,3 @@ function spreadDivs(arr) {
 }
 
 
-
-console.log(drawBarChart([5, 6, 7, 10, 120, 2]));
