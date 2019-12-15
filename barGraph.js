@@ -1,4 +1,4 @@
-function drawBarChart(arr) {
+function drawBarChart(arr, obj) {
   
   // creates master div and some base styling
   let chart = document.createElement("div");
@@ -8,7 +8,7 @@ function drawBarChart(arr) {
   chart.style.gridTemplateColumns = spreadDivs(arr);
   chart.style.gridTemplateRows = createBarHeight(arr);
   
-  // creates div that will containe y-axis values
+  // creates div that will contain y-axis values
   let yAxis = document.createElement("div");yAxis.style.gridRowStart = highestValue(arr) + 1;yAxis.classList.add("column");yAxis.innerHTML = "y-axis values";chart.appendChild(yAxis);
 
  
@@ -36,7 +36,7 @@ function drawBarChart(arr) {
   // creates bars
   for (let n = 0; n < arr.length; n++) {
     let barColor = document.createElement("div");
-    barColor.style.backgroundColor = "orange";
+    barColor.style.backgroundColor = obj.barColorArr[n];
     barColor.style.gridColumnStart = n + 2;
     barColor.style.gridRowEnd = highestValue(arr) + 1;
     if (arr[n] === highestValue(arr)) {
@@ -55,7 +55,11 @@ function drawBarChart(arr) {
 }
 
 // testing
-console.log(drawBarChart([5, 4, 2, 10, 7, 6]));
+let testArr = [5, 4, 2, 10];
+let testObj = {
+  barColorArr : ["orange", "green", "blue", "red"],
+}
+console.log(drawBarChart(testArr, testObj));
 
 
 // ------------------ mini functions ------------------ //

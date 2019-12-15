@@ -34,3 +34,11 @@ day3:
     to use this system in constructing a bargraph. I went ahead and created a template,
     that i will use as a basis of how i want the UI to look like.
   - Honestly the grid system made sense to me pretty quickly, so no struggles today.
+
+day4: SUCCESS I GOT A WORKING BUILD!!!!
+  - 5 hours
+  - I decided to get rid of jQuery as well and only focus on manipulating
+    the DOM in JS. Everything came together by focusing on smaller chunks
+    of the overall problem. I know that some of the code can be refactored
+    to contain less writing but it works for now.
+  - next step is to allow user customization.
