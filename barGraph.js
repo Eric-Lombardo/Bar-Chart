@@ -77,7 +77,7 @@ let testObj = {
   titleFontColor : "purple",
   yAxisLabel : "# of people who likes this pet",
   yAxisTicksStyle : "1px dotted rgb(117, 77, 65)",
-  yValueStart : 0,
+  yValueStart : 3, // for even ticks start should match step increase
   yValuestepIncrease : 3,
   spaceBetweenBars : "2px", 
 }
