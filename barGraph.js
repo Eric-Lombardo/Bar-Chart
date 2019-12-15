@@ -17,7 +17,7 @@ function drawBarChart(arr, obj) {
   chart.style.gridTemplateRows = createBarHeight(arr);
   
   // creates div that will contain y-axis values
-  let yAxis = document.createElement("div");yAxis.style.gridRowStart = highestValue(arr) + 1;yAxis.innerHTML = obj.yAxisLabel;chart.appendChild(yAxis);
+  let yAxis = document.createElement("div");yAxis.style.gridRowStart = highestValue(arr) + 1;yAxis.style.borderTop = obj.yAxisTicksStyle;yAxis.innerHTML = obj.yAxisLabel;chart.appendChild(yAxis);
   
   // sets the background color of the body  
   document.body.style.backgroundColor = obj.backgroundColor;
@@ -33,12 +33,9 @@ function drawBarChart(arr, obj) {
   }
   
   // prints out values for y-axis based on input data
-  for (let m = 1; m <= highestValue(arr); m++) {
+  for (let m = obj.yValueStart; m <= highestValue(arr); m += obj.yValuestepIncrease) {
     let printData = document.createElement("div");
     printData.innerHTML = m;
-    if (m === 1) {
-      printData.style.borderBottom = obj.yAxisTicksStyle;
-    }
     printData.style.gridRowStart = (highestValue(arr) + 1) - m;
     printData.style.borderTop = obj.yAxisTicksStyle;
     chart.appendChild(printData);
@@ -61,6 +58,9 @@ function drawBarChart(arr, obj) {
     chart.appendChild(barColor);
   }
   
+
+
+
   
   document.body.appendChild(chart);
 }
@@ -77,6 +77,8 @@ let testObj = {
   titleFontColor : "purple",
   yAxisLabel : "# of people who likes this pet",
   yAxisTicksStyle : "1px dotted rgb(117, 77, 65)",
+  yValueStart : 0,
+  yValuestepIncrease : 3,
   spaceBetweenBars : "2px", 
 }
 console.log(drawBarChart(testArr, testObj));
