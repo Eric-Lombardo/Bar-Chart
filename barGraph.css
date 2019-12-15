@@ -1,8 +1,16 @@
 body {
   background-color: pink;
+  text-align: center;
 }
 
 .column {
   border: 2px black solid;
 }
 
+.yAxisValues {
+  border-top: 2px black solid;
+}
+
+.firstYValue {
+  border-bottom: 2px black solid;
+}

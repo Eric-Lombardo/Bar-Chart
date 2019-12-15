@@ -42,3 +42,20 @@ day4: SUCCESS I GOT A WORKING BUILD!!!!
     of the overall problem. I know that some of the code can be refactored
     to contain less writing but it works for now.
   - next step is to allow user customization.
+
+day5:
+  - 3 hours
+  - added user inut styling for many things such as:
+    - bar color
+    - display bar values ****needs more research*****
+    - add title and customize font size and color and bottom spacing
+    - the ability to stylize the y axis ticks
+    - change overall background color of chart
+    - choose the spacing between the bars
+  - My biggest struggle today is to figure out how to place the values
+    of each bar in terms of top, bottom or middle. I am only able to
+    set it to the top for now. I tried using align-text but that didn'to
+    seem to have an effect because it always chooses the top cell. I
+    thought of targetting a specific cell for example if the user chooses
+    middle, i would take math.cieling of bar value divided by 2. However,
+    from the little research i did targetting a specfic cell is not possible.
