@@ -1,4 +1,19 @@
 function drawBarChart(arr, obj) {
+  
+  // creates master div element with some base styling
+  let master = document.createElement("div");
+  master.id = "master";
+  master.style.width = obj.masterWidth;
+  master.style.border = obj.masterBorder;
+  master.style.fontFamily = obj.fontFamily;
+
+  // creates chart div and some base styling
+  let chart = document.createElement("div");
+  chart.classList.add("chart");
+  chart.style.display = "grid";
+  chart.style.gap = obj.spaceBetweenBars;
+  chart.style.gridTemplateColumns = spreadDivs(arr);
+  chart.style.gridTemplateRows = createBarHeight(arr);
 
   // creates title
   let title = document.createElement("div");
@@ -6,18 +21,16 @@ function drawBarChart(arr, obj) {
   title.style.fontSize = obj.titleFontSize;
   title.style.color = obj.titleFontColor;
   title.style.paddingBottom = obj.titleBottomSpace;
-  document.body.appendChild(title);
-  
-  // creates master div and some base styling
-  let chart = document.createElement("div");
-  chart.classList.add("chart");
-  chart.style.display = "grid";
-  chart.style.gap = obj.spaceBetweenBars;
-  chart.style.gridTemplateColumns = spreadDivs(arr);
-  chart.style.gridTemplateRows = createBarHeight(arr);
+  master.appendChild(title);
   
   // creates div that will contain y-axis values
-  let yAxis = document.createElement("div");yAxis.style.gridRowStart = highestValue(arr) + 1;yAxis.style.borderTop = obj.yAxisTicksStyle;yAxis.innerHTML = obj.yAxisLabel;chart.appendChild(yAxis);
+  let yAxis = document.createElement("div");
+  yAxis.style.gridRowStart = highestValue(arr) + 1;
+  yAxis.style.borderTop = obj.yAxisTicksStyle;
+  yAxis.innerHTML = obj.yAxisLabel;
+  yAxis.style.color = obj.labelTextColor;
+  yAxis.style.backgroundColor = obj.labelBGColor;
+  chart.appendChild(yAxis);
   
   // sets the background color of the body  
   document.body.style.backgroundColor = obj.backgroundColor;
@@ -27,6 +40,8 @@ function drawBarChart(arr, obj) {
   for (let i = 0; i < arr.length; i++) {
     let newData = document.createElement("div");
     newData.innerHTML = obj.barNameArr[i];
+    newData.style.backgroundColor = obj.labelBGColor;
+    newData.style.color = obj.labelTextColor;
     newData.style.gridColumnStart = i + 2;
     newData.style.gridRowStart = highestValue(arr) + 1;
     chart.appendChild(newData); 
@@ -61,8 +76,8 @@ function drawBarChart(arr, obj) {
 
 
 
-  
-  document.body.appendChild(chart);
+  master.appendChild(chart);
+  document.body.appendChild(master);
 }
 
 // testing
@@ -77,9 +92,14 @@ let testObj = {
   titleFontColor : "purple",
   yAxisLabel : "# of people who likes this pet",
   yAxisTicksStyle : "1px dotted rgb(117, 77, 65)",
-  yValueStart : 3, // for even ticks start should match step increase
-  yValuestepIncrease : 3,
-  spaceBetweenBars : "2px", 
+  yValueStart : 5, // for even ticks start should match step increase
+  yValuestepIncrease : 5,
+  spaceBetweenBars : "2px",
+  masterWidth: "600px",
+  masterBorder: "2px solid black",
+  labelBGColor: "red",
+  labelTextColor: "blue",
+  fontFamily: "Comic Sans MS" // only use web-safe fonts
 }
 console.log(drawBarChart(testArr, testObj));
 

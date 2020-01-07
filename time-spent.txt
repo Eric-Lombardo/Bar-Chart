@@ -68,3 +68,12 @@ day5 - Continued:
     if they want to include the maximum  y value even if it's not at a
     multiple of their desired step increase but it made the graph look
     wierd so i decided against adding this feature. 
+
+day6:
+  - 2 hours
+  - added a bunch of styling options:
+    - ability to choose font family
+    - ability to change the background color of labels
+    - ability to change text color of labels
+    - control the width of master element
+    - ability to place a border around master element
