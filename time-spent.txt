@@ -77,3 +77,9 @@ day6:
     - ability to change text color of labels
     - control the width of master element
     - ability to place a border around master element
+
+day7:
+  - 1 hours
+  - made it possible to use google custom fonts by adding a function
+    that would create a link in the head of the HTML document with the
+    url of the google font.

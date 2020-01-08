@@ -6,6 +6,7 @@ function drawBarChart(arr, obj) {
   master.style.width = obj.masterWidth;
   master.style.border = obj.masterBorder;
   master.style.fontFamily = obj.fontFamily;
+  customFont(obj.fontFamilyURL);
 
   // creates chart div and some base styling
   let chart = document.createElement("div");
@@ -99,12 +100,24 @@ let testObj = {
   masterBorder: "2px solid black",
   labelBGColor: "red",
   labelTextColor: "blue",
-  fontFamily: "Comic Sans MS" // only use web-safe fonts
+  fontFamily: "'Cute Font', cursive",
+  fontFamilyURL: "https://fonts.googleapis.com/css?family=Cute+Font&display=swap",
 }
 console.log(drawBarChart(testArr, testObj));
 
 
 // ------------------ mini functions ------------------ //
+
+// creates html link stylesheet for custom google fonts
+function customFont(linkURL) {
+  let head = document.head;
+  let link = document.createElement("link");
+
+  link.type = "text/css";
+  link.rel = "stylesheet";
+  link.href = linkURL;
+  head.appendChild(link);
+}
 
 // finds the highest value of input data-set
 function highestValue(arr) {
@@ -142,7 +155,7 @@ function spreadDivs(arr) {
   for (let j = 0; j <= arr.length; j++) {
     string += "1fr ";
   }
-  return string;
+  return string;  
 }
 
 
