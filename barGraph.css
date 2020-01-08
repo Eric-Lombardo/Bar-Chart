@@ -14,3 +14,7 @@ body {
 .firstYValue {
   border-bottom: 2px black solid;
 }
+
+.blue {
+  background-color: aqua;
+}

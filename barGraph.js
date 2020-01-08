@@ -36,17 +36,40 @@ function drawBarChart(arr, obj) {
   // sets the background color of the body  
   document.body.style.backgroundColor = obj.backgroundColor;
 
+  // // loops through input array to create divs and nests them inside
+  // //chart div
+  // for (let i = 0; i < arr.length; i++) {
+  //   let newData = document.createElement("div");
+  //   newData.innerHTML = obj.barNameArr[i];
+  //   newData.style.backgroundColor = obj.labelBGColor;
+  //   newData.style.color = obj.labelTextColor;
+  //   newData.style.gridColumnStart = i + 2;
+  //   newData.style.gridRowStart = highestValue(arr) + 1;
+  //   chart.appendChild(newData); 
+  // }
+
   // loops through input array to create divs and nests them inside
   //chart div
-  for (let i = 0; i < arr.length; i++) {
+  //delete if it doesnt work!!!!!
+  if (obj.stackedBarChart === false) {
+    for (let i = 0; i < arr.length; i++) {
+      let newData = document.createElement("div");
+      newData.innerHTML = obj.barNameArr[i];
+      newData.style.backgroundColor = obj.labelBGColor;
+      newData.style.color = obj.labelTextColor;
+      newData.style.gridColumnStart = i + 2;
+      newData.style.gridRowStart = highestValue(arr) + 1;
+      chart.appendChild(newData); 
+    }
+  } else if (obj.stackedBarChart === true) {
     let newData = document.createElement("div");
-    newData.innerHTML = obj.barNameArr[i];
     newData.style.backgroundColor = obj.labelBGColor;
     newData.style.color = obj.labelTextColor;
-    newData.style.gridColumnStart = i + 2;
+    newData.style.gridColumnStart = 2;
     newData.style.gridRowStart = highestValue(arr) + 1;
     chart.appendChild(newData); 
   }
+// delete above if it doesnt work
   
   // prints out values for y-axis based on input data
   for (let m = obj.yValueStart; m <= highestValue(arr); m += obj.yValuestepIncrease) {
@@ -58,23 +81,75 @@ function drawBarChart(arr, obj) {
   }
 
   // creates bars
-  for (let n = 0; n < arr.length; n++) {
+  // for (let n = 0; n < arr.length; n++) {
+  //   let barColor = document.createElement("div");
+  //   let barValue = document.createElement("div");
+  //   barValue.innerText = arr[n];
+  //   barColor.appendChild(barValue);
+  //   barColor.style.backgroundColor = obj.barColorArr[n];
+  //   barColor.style.gridColumnStart = n + 2;
+  //   barColor.style.gridRowEnd = highestValue(arr) + 1;
+  //   if (arr[n] === highestValue(arr)) {
+  //     barColor.style.gridRowStart = 1;
+  //   } else if (arr[n] < highestValue(arr)) {
+  //     barColor.style.gridRowStart = highestValue(arr) - arr[n] + 1;
+  //   }
+  //   chart.appendChild(barColor);
+  // }
+  
+  //delete if it doesnt work!!! creates bars
+  if (obj.stackedBarChart === false) {
+    for (let n = 0; n < arr.length; n++) {
+      let barColor = document.createElement("div");
+      let barValue = document.createElement("div");
+      barValue.innerText = arr[n];
+      barColor.appendChild(barValue);
+      barColor.style.backgroundColor = obj.barColorArr[n];
+      barColor.style.gridColumnStart = n + 2;
+      barColor.style.gridRowEnd = highestValue(arr) + 1;
+      if (arr[n] === highestValue(arr)) {
+        barColor.style.gridRowStart = 1;
+      } else if (arr[n] < highestValue(arr)) {
+        barColor.style.gridRowStart = highestValue(arr) - arr[n] + 1;
+      }
+      chart.appendChild(barColor);
+    }
+  } else if (obj.stackedBarChart === true) {
     let barColor = document.createElement("div");
     let barValue = document.createElement("div");
-    barValue.innerText = arr[n];
+    barValue.innerText = highestValue(arr) + " - " + obj.barNameArr[arr.indexOf(highestValue(arr))];
     barColor.appendChild(barValue);
-    barColor.style.backgroundColor = obj.barColorArr[n];
-    barColor.style.gridColumnStart = n + 2;
+    barColor.style.backgroundColor = obj.barColorArr[0];
+    barColor.style.gridColumnStart = 2;
     barColor.style.gridRowEnd = highestValue(arr) + 1;
-    if (arr[n] === highestValue(arr)) {
-      barColor.style.gridRowStart = 1;
-    } else if (arr[n] < highestValue(arr)) {
-      barColor.style.gridRowStart = highestValue(arr) - arr[n] + 1;
-    }
+    barColor.style.gridRowStart = 1;
     chart.appendChild(barColor);
   }
-  
+// delete above if it doesnt work
 
+//delete if it doesnt work
+// creates colored bars stacked over each other for stacked bar graph
+if (obj.stackedBarChart === true) {
+
+  let sortedArr = sort(arr);
+
+  for (let p = 0; p < sortedArr.length; p++) {
+    let newStackBar = document.createElement("div");
+    let number = sortedArr[p];
+    // newStackBar.style.backgroundColor = obj.barColorArr[p];
+    newStackBar.style.backgroundColor = obj.barColorArr[arr.indexOf(number)];
+    console.log(number);
+    newStackBar.innerHTML = `${sortedArr[p]} - ${obj.barNameArr[arr.indexOf(number)]}`;
+    newStackBar.style.gridColumnStart = 2;
+    newStackBar.style.gridRow = `${(highestValue(arr) + 1 - sortedArr[p])} / 11`;
+    chart.appendChild(newStackBar);
+  }
+
+
+
+}
+
+//delete above if it doesnt work
 
 
   master.appendChild(chart);
@@ -102,11 +177,19 @@ let testObj = {
   labelTextColor: "blue",
   fontFamily: "'Cute Font', cursive",
   fontFamilyURL: "https://fonts.googleapis.com/css?family=Cute+Font&display=swap",
+  stackedBarChart: true,
 }
 console.log(drawBarChart(testArr, testObj));
 
 
 // ------------------ mini functions ------------------ //
+
+// sorting the array in descending order without mutating orginal array
+function sort(arr) {
+  return arr.concat().sort(function (a, b) {
+    return b - a;
+  });
+}
 
 // creates html link stylesheet for custom google fonts
 function customFont(linkURL) {

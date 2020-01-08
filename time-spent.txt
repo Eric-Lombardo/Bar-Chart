@@ -83,3 +83,13 @@ day7:
   - made it possible to use google custom fonts by adding a function
     that would create a link in the head of the HTML document with the
     url of the google font.
+
+day7 - Continued:
+  - 6 hours
+  - Refactored some code to be able to include stacked bar graphs. I created 
+    some helper functions for example sorting the given array in descending 
+    order so that i can later create each bar with the less-value bar going
+    on top of the "stack" so that the background colors for each bar shows
+    on the webpage. Also when the user chooses stacked bar graph the labels
+    for each bar now show on the bar itself and as always still includes the
+    value for that bar.
