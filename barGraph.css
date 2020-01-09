@@ -1,20 +1,2 @@
-body {
-  background-color: pink;
-  text-align: center;
-}
+/* All styling is does dynamically through user input with DOM using JS  */
 
-.column {
-  border: 2px black solid;
-}
-
-.yAxisValues {
-  border-top: 2px black solid;
-}
-
-.firstYValue {
-  border-bottom: 2px black solid;
-}
-
-.blue {
-  background-color: aqua;
-}
