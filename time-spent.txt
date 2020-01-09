@@ -93,3 +93,12 @@ day7 - Continued:
     on the webpage. Also when the user chooses stacked bar graph the labels
     for each bar now show on the bar itself and as always still includes the
     value for that bar.
+  - biggest hurdle today was that it took me a long time to realize that when
+    sorting an array in descending order and then assign it to a new variable
+    it will mutate the original array. That caused a problem when i was trying 
+    to assign a spefic color from obj.barColorArr using the .indexOf method from
+    the original array.
+
+dat7 - Continued
+  - 30 minutes
+  - made sure to remove unnecessary grid columns when user selects stack graph

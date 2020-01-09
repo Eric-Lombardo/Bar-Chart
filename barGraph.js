@@ -13,7 +13,11 @@ function drawBarChart(arr, obj) {
   chart.classList.add("chart");
   chart.style.display = "grid";
   chart.style.gap = obj.spaceBetweenBars;
-  chart.style.gridTemplateColumns = spreadDivs(arr);
+  if (obj.stackedBarChart === false) {
+    chart.style.gridTemplateColumns = spreadDivs(arr);
+  } else if (obj.stackedBarChart === true) {
+    chart.style.gridTemplateColumns = "1fr 1fr";
+  }
   chart.style.gridTemplateRows = createBarHeight(arr);
 
   // creates title
@@ -168,8 +172,8 @@ let testObj = {
   titleFontColor : "purple",
   yAxisLabel : "# of people who likes this pet",
   yAxisTicksStyle : "1px dotted rgb(117, 77, 65)",
-  yValueStart : 5, // for even ticks start should match step increase
-  yValuestepIncrease : 5,
+  yValueStart : 2, // for even ticks start should match step increase
+  yValuestepIncrease : 2,
   spaceBetweenBars : "2px",
   masterWidth: "600px",
   masterBorder: "2px solid black",
