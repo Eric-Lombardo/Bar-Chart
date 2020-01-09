@@ -60,7 +60,6 @@ day5:
     middle, i would take math.cieling of bar value divided by 2. However,
     from the little research i did targetting a specfic cell is not possible.
 
-day5 - Continued:
   - 40 minutes
   - added the ability to the user to specifiy the y axis start value as 
     well as the step increase for each y axis tick.
@@ -84,7 +83,6 @@ day7:
     that would create a link in the head of the HTML document with the
     url of the google font.
 
-day7 - Continued:
   - 6 hours
   - Refactored some code to be able to include stacked bar graphs. I created 
     some helper functions for example sorting the given array in descending 
@@ -99,7 +97,6 @@ day7 - Continued:
     to assign a spefic color from obj.barColorArr using the .indexOf method from
     the original array.
 
-day7 - Continued
   - 30 minutes
   - made sure to remove unnecessary grid columns when user selects stack graph
 
@@ -108,3 +105,6 @@ day8
   - cleaned up unused and placeholder code.
   - I also added the ability to change the font color of the values on the y-axis
     as well as the values on the bar.
+
+  - 1 hour
+  - Made it possible for the user to choose where the whole chart will be displayed. I also made sure that the border created will be included in the given width so that the border will not exceed the width condition. I also changed my code so that the background-color of the chart doesn't affect the body's BG-color but only the chart's BG color.

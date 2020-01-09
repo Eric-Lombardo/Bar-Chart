@@ -1,8 +1,9 @@
-function drawBarChart(arr, obj) {
+function drawBarChart(arr, obj, element) {
   
   // creates master div element with some base styling
   let master = document.createElement("div");
   master.id = "master";
+  master.style.boxSizing = "border-box";
   master.style.width = obj.masterWidth;
   master.style.border = obj.masterBorder;
   master.style.fontFamily = obj.fontFamily;
@@ -39,8 +40,8 @@ function drawBarChart(arr, obj) {
   yAxis.style.backgroundColor = obj.labelBGColor;
   chart.appendChild(yAxis);
   
-  // sets the background color of the body  
-  document.body.style.backgroundColor = obj.backgroundColor;
+  // sets the background color of the chart of user's chosen element  
+  document.querySelector(element).style.backgroundColor = obj.backgroundColor;
 
   // loops through input array to create divs and nests them inside
   //chart div
@@ -117,14 +118,16 @@ function drawBarChart(arr, obj) {
     }
   }
 
+  // nesting everything together with final destination being the user's chosen element
   master.appendChild(chart);
-  document.body.appendChild(master);
+  let placeChart = document.querySelector(element);
+  placeChart.appendChild(master);
 }
 
 // testing
 let testArr = [5, 4, 2, 10];
 let testObj = {
-  backgroundColor: "rgb(191, 227, 200)",
+  backgroundColor: "black",
   barColorArr : ["orange", "green", "aqua", "red"],
   barNameArr : ["cats", "dogs", "birds", "geese"],
   titleName : "My first bar-chart in JS",
@@ -143,9 +146,10 @@ let testObj = {
   labelTextColor: "red",
   fontFamily: "'Cute Font', cursive",
   fontFamilyURL: "https://fonts.googleapis.com/css?family=Cute+Font&display=swap",
-  stackedBarChart: false,
+  stackedBarChart: true,
 }
-console.log(drawBarChart(testArr, testObj));
+let testElement = "#placeChart" // make sure element doesn't have a BG-Color. Must include "#". Must already exist.
+console.log(drawBarChart(testArr, testObj, testElement));
 
 
 // -------------------------------- mini functions --------------------------------- //

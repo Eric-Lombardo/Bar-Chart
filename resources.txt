@@ -1,4 +1,12 @@
 Wes Bos CSS grid playlist: https://www.youtube.com/watch?v=Z3BZMd4YzVw&list=PLu8EoSxDXHP5CIFvt9-ze3IngcdAc2xKG&index=3
+
 CSS game for flexbox: https://flexboxfroggy.com
+
 CSS game for grid: https://cssgridgarden.com
+
 fundamentals of HTML/CSS: https://www.udemy.com/course/the-web-developer-bootcamp/
+
+Lots and lots of google searches
+  - MDN
+  - W3school
+  - past stackOverflow posts with similar questions
