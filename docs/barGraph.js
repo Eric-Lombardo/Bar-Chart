@@ -10,6 +10,7 @@ function drawBarChart(arr, obj, element) {
   customFont(obj.fontFamilyURL);
   master.style.color = obj.valueFontColor;
   master.style.textAlign = "center";
+  master.style.fontSize = obj.masterFontSize;
 
   // creates chart div and some base styling
   let chart = document.createElement("div");
@@ -40,8 +41,8 @@ function drawBarChart(arr, obj, element) {
   yAxis.style.backgroundColor = obj.labelBGColor;
   chart.appendChild(yAxis);
   
-  // sets the background color of the chart of user's chosen element  
-  document.querySelector(element).style.backgroundColor = obj.backgroundColor;
+  // sets the background color of the chart
+  master.style.backgroundColor = obj.backgroundColor;
 
   // loops through input array to create divs and nests them inside
   //chart div
@@ -125,31 +126,61 @@ function drawBarChart(arr, obj, element) {
 }
 
 // testing
-let testArr = [5, 4, 2, 10];
+let testArr = [2, 5, 4, 6, 10];
 let testObj = {
-  backgroundColor: "black",
-  barColorArr : ["orange", "green", "aqua", "red"],
-  barNameArr : ["cats", "dogs", "birds", "geese"],
-  titleName : "My first bar-chart in JS",
+  backgroundColor: "#e378a8",
+  barColorArr : ["#013A40", "#027373", "#F26A4B", "#F23D3D", "#630b31"],
+  barNameArr : ["bus", "metro", "car", "bike", "taxi"],
+  titleName : "Transportation",
   titleBottomSpace : "10px",
   titleFontSize : "50px",
-  titleFontColor : "purple",
-  yAxisLabel : "# of people who likes this pet",
-  yAxisTicksStyle : "1px dotted rgb(117, 77, 65)",
-  valueFontColor: "red",
+  titleFontColor : "white",
+  yAxisLabel : "# of people",
+  yAxisTicksStyle : "3px solid rgb(117, 77, 65)",
+  valueFontColor: "pink",
   yValueStart : 2, // for even ticks start should match step increase
   yValuestepIncrease : 2, // make sure that the highest value is a multiple
-  spaceBetweenBars : "2px",
-  masterWidth: "600px",
-  masterBorder: "2px solid black",
-  labelBGColor: "violet",
-  labelTextColor: "red",
-  fontFamily: "'Cute Font', cursive",
-  fontFamilyURL: "https://fonts.googleapis.com/css?family=Cute+Font&display=swap",
-  stackedBarChart: true,
+  spaceBetweenBars : "0px",
+  masterWidth: "1000px",
+  masterBorder: "5px dotted pink",
+  labelBGColor: "red",
+  labelTextColor: "#36eb7b",
+  fontFamily: "'Playfair Display', serif",
+  fontFamilyURL: "https://fonts.googleapis.com/css?family=Playfair+Display&display=swap",
+  stackedBarChart: false,
+  masterFontSize: "20px",
 }
 let testElement = "#placeChart" // make sure element doesn't have a BG-Color. Must include "#". Must already exist.
 console.log(drawBarChart(testArr, testObj, testElement));
+
+// testing
+let testArr2 = [3, 6, 9, 12];
+let testObj2 = {
+  backgroundColor: "green",
+  barColorArr : ["aqua", "white", "violet", "red"],
+  barNameArr : ["cat", "dog", "bird", "goose"],
+  titleName : "Who Has These Pets?",
+  titleBottomSpace : "20px",
+  titleFontSize : "25px",
+  titleFontColor : "pink",
+  yAxisLabel : "# of people",
+  yAxisTicksStyle : "3px dotted rgb(117, 77, 65)",
+  valueFontColor: "black",
+  yValueStart : 3, // for even ticks start should match step increase
+  yValuestepIncrease : 3, // make sure that the highest value is a multiple
+  spaceBetweenBars : "6px",
+  masterWidth: "500px",
+  masterBorder: "5px solid black",
+  labelBGColor: "pink",
+  labelTextColor: "black",
+  fontFamily: "'Anton', sans-serif",
+  fontFamilyURL: "https://fonts.googleapis.com/css?family=Anton&display=swap",
+  stackedBarChart: true,
+  masterFontSize: "20px",
+}
+let testElement2 = "#placeChart2" // make sure element doesn't have a BG-Color. Must include "#". Must already exist.
+console.log(drawBarChart(testArr2, testObj2, testElement2));
+
 
 
 // -------------------------------- mini functions --------------------------------- //

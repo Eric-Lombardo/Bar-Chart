@@ -34,7 +34,7 @@ let element = "#placeChart"
 
 - Where the *obj* parameter is an object containing all the styling and customizations of the generated bar graph.
 
-  - *backgroundColor* is to control the BG-Color fo the entire chart
+  - *backgroundColor* is to control the BG-Color fo the entire chart. Make sure the target HTML document doesn't have a BG-Color already.
   - *barColorArr* is to control each bar's color individually. It's in an array format which relates to the order of the *arr* parameter.
   - *barNameArr* is an array containing the labels for each bar. It relates to the order of the *arr* parameter.
   - *titleName* is a string that contains the name of the chart.

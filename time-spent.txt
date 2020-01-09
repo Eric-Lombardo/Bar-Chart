@@ -108,3 +108,6 @@ day8
 
   - 1 hour
   - Made it possible for the user to choose where the whole chart will be displayed. I also made sure that the border created will be included in the given width so that the border will not exceed the width condition. I also changed my code so that the background-color of the chart doesn't affect the body's BG-color but only the chart's BG color.
+
+  - 5 hours
+  - Setting up the files in proper folders so that git hub can make a webpage. I wrote a README that will help users use my API.
